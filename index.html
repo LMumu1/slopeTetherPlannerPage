@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Real-Time Path Planning for Tethered Robots in Extreme Environments">
+  <meta name="description" content="A CCO-based planner for tethered robots that decouples tether constraint evaluation from path search and achieves millisecond-level planning.">
+  <meta name="keywords" content="tethered robot, path planning, robotics, constrained planning, homotopy, Dijkstra, extreme environments">
+  <meta name="author" content="Sen Liu, Liang Ding, Ruyi Zhou, Lan Huang, Huaiguang Yang, Haibo Gao, Zongquan Deng">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Real-Time Path Planning for Tethered Robots in Extreme Environments">
+  <meta property="og:description" content="Constraint Consistency and Optimality for efficient tether-aware path planning in extreme environments.">
+  <meta property="og:image" content="static/images/z10.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Real-Time Path Planning for Tethered Robots in Extreme Environments">
+  <meta name="twitter:description" content="A CCO-based planner for real-time tethered robot path planning.">
+  <meta name="twitter:image" content="static/images/z10.png">
+  <meta name="citation_title" content="Real-Time Path Planning for Tethered Robots in Extreme Environments Based on Constraint Consistency and Optimality">
+  <meta name="citation_author" content="Liu, Sen">
+  <meta name="citation_author" content="Ding, Liang">
+  <meta name="citation_author" content="Zhou, Ruyi">
+  <meta name="citation_author" content="Huang, Lan">
+  <meta name="citation_author" content="Yang, Huaiguang">
+  <meta name="citation_author" content="Gao, Haibo">
+  <meta name="citation_author" content="Deng, Zongquan">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="static/pdfs/paper.pdf">
+  <title>Real-Time Path Planning for Tethered Robots | Project Page</title>
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg?v=20260624">
+  <link rel="shortcut icon" type="image/svg+xml" href="static/images/favicon.svg?v=20260624">
+  <link rel="apple-touch-icon" href="static/images/favicon.png?v=20260624">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Real-Time Path Planning for Tethered Robots in Extreme Environments Based on Constraint Consistency and Optimality",
+    "description": "A CCO-based path planner for tethered robots that evaluates terminal tether configurations instead of coupling tether constraints with every path-search expansion.",
+    "author": [
+      {"@type": "Person", "name": "Sen Liu"},
+      {"@type": "Person", "name": "Liang Ding"},
+      {"@type": "Person", "name": "Ruyi Zhou"},
+      {"@type": "Person", "name": "Lan Huang"},
+      {"@type": "Person", "name": "Huaiguang Yang"},
+      {"@type": "Person", "name": "Haibo Gao"},
+      {"@type": "Person", "name": "Zongquan Deng"}
+    ],
+    "datePublished": "2026",
+    "keywords": ["tethered robot", "path planning", "homotopy", "Dijkstra", "extreme environments"],
+    "isAccessibleForFree": true,
+    "image": "static/images/z10.png"
+  }
+  </script>
+</head>
+<body>
+  <button class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <nav class="navbar project-nav" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item project-mark" href="#top">CCO Planner</a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="project-menu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#video">Video</a>
+          <a class="navbar-item" href="#theory">Theory</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#bibtex">BibTeX</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero publication-hero">
+      <div class="hero-body">
+        <div class="container publication-container has-text-centered">
+          <p class="venue-kicker">Robotics · Real-Time Path Planning · Tethered Robots</p>
+          <h1 class="title publication-title">
+            Real-Time Path Planning for Tethered Robots in Extreme Environments Based on Constraint Consistency and Optimality
+          </h1>
+          <div class="publication-authors">
+            <span class="author-block">Sen Liu</span>
+            <span class="author-block">Liang Ding</span>
+            <span class="author-block"><a href="https://ellinier.github.io/" target="_blank" rel="noopener">Ruyi Zhou</a><sup>*</sup></span>
+            <span class="author-block">Lan Huang</span>
+            <span class="author-block">Huaiguang Yang</span>
+            <span class="author-block">Haibo Gao</span>
+            <span class="author-block">Zongquan Deng</span>
+          </div>
+          <p class="publication-affiliation">State Key Laboratory of Robotics and Systems · Harbin, China</p>
+          <p class="corresponding-note"><sup>*</sup>Corresponding author</p>
+          <div class="publication-links">
+            <a class="button is-dark project-button" href="static/pdfs/paper.pdf" target="_blank" rel="noopener">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>Paper</span>
+            </a>
+            <a class="button is-light project-button code-placeholder" href="#" aria-disabled="true" title="Code repository link pending">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            <a class="button is-light project-button" href="#bibtex">
+              <span class="icon"><i class="fas fa-quote-right"></i></span>
+              <span>BibTeX</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section abstract-section" id="abstract">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3 section-title">Abstract</h2>
+            <div class="content has-text-justified paper-copy">
+              <p>
+                The tether enables the robot to operate in extreme environments while imposing constraints on length and the maximum deployment angle in path planning. Conventional path-planning algorithms for tethered robots suffer from tight coupling between constraint evaluation and the search process, resulting in low planning efficiency.
+              </p>
+              <p>
+                To address this issue, we propose a method based on our constraint consistency and optimality (CCO) theorem. Instead of computing tether constraints during the search for robot paths, we first search for terminal tether configurations and evaluate the constraints only afterward, effectively decoupling constraint evaluation from the search process. In addition, we introduce the Receptive Field Enhanced Dijkstra (RFE-Dijkstra) algorithm, which significantly reduces the search space and further accelerates computation.
+              </p>
+              <p>
+                Experiments show that the proposed CCO-based planner runs in milliseconds on grid maps with dozens of obstacles, using only 0.17% of the computation time of direct shortest-path search and just 0.014% of that of the method that precomputes the reachable space before searching.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-band" id="video">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3 section-title">Video Presentation</h2>
+            <div class="video-placeholder" data-youtube-id="">
+              <span class="video-icon"><i class="fas fa-play"></i></span>
+              <p>YouTube video link pending.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title has-text-centered">Highlights</h2>
+        <div class="columns is-multiline highlight-grid">
+          <div class="column is-one-third">
+            <article class="highlight-card">
+              <span class="highlight-icon"><i class="fas fa-project-diagram"></i></span>
+              <h3>CCO Theorem</h3>
+              <p>A theoretical link between initial tether, terminal tether, and robot path lets the planner verify constraints at the terminal tether state.</p>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="highlight-card">
+              <span class="highlight-icon"><i class="fas fa-route"></i></span>
+              <h3>RFE-Dijkstra</h3>
+              <p>A receptive-field search prunes infeasible terminal tether configurations before expensive curve-shortening and constraint evaluation.</p>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="highlight-card">
+              <span class="highlight-icon"><i class="fas fa-tachometer-alt"></i></span>
+              <h3>Millisecond Planning</h3>
+              <p>The method reaches 59.5 ms on 25-obstacle grid maps, with large speedups over direct search and preprocessing baselines.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="theory">
+      <div class="container is-max-widescreen">
+        <div class="section-heading">
+          <h2 class="title is-3 section-title">Theory</h2>
+          <p>
+            The theoretical foundation converts constrained robot-path search into feasible terminal tether-configuration selection.
+          </p>
+        </div>
+
+        <div class="theory-grid">
+          <article class="theory-panel">
+            <span class="theory-index">I</span>
+            <h3 class="title is-4">Triangular Relationship</h3>
+            <p>
+              A taut tether is the shortest curve in its homotopy class. Let the initial tether configuration be <span class="math-symbol">&alpha;<sub>s</sub></span>, the robot path be <span class="math-symbol">&alpha;<sub>sg</sub></span>, and the terminal tether configuration be <span class="math-symbol">&alpha;<sub>g</sub></span>. When <span class="math-symbol">&alpha;<sub>s</sub> * &alpha;<sub>sg</sub> &simeq; &alpha;<sub>g</sub></span>, the non-overlapping portions of these three shortest curves form a triangular relationship.
+            </p>
+            <p>
+              This relationship describes how the tether deforms as the robot moves: an intermediate tether configuration either follows the initial or terminal tether over a shared segment, or is obtained through a tangent/straight-line construction inside the triangle.
+            </p>
+          </article>
+
+          <article class="theory-panel">
+            <span class="theory-index">II</span>
+            <h3 class="title is-4">CCO Theorem</h3>
+            <p>
+              <strong>Constraint consistency:</strong> if the robot follows the shortest path in a homotopy class and the terminal tether configuration satisfies the tether length and maximum deployment angle constraints, then every intermediate tether configuration along the path also satisfies these constraints.
+            </p>
+            <p>
+              <strong>Constraint optimality:</strong> the globally shortest path satisfying tether constraints must be the shortest curve in one homotopy class. Therefore, the planner can search candidate terminal tether configurations first, check their feasibility once, and then compute the corresponding shortest robot path.
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-band" id="method">
+      <div class="container is-max-widescreen">
+        <div class="section-heading">
+          <h2 class="title is-3 section-title">Method</h2>
+          <p>
+            The core idea is to plan terminal tether configurations that satisfy tether constraints instead of searching for robot paths that satisfy tether constraints.
+          </p>
+        </div>
+
+        <figure class="paper-figure method-pipeline">
+          <img src="static/images/z10.png" alt="Computation process of the tethered robot path planning algorithm">
+          <figcaption>
+            The planner searches terminal tether configurations first, filters them by tether length and deployment angle, then computes the corresponding robot path.
+          </figcaption>
+        </figure>
+
+        <div class="columns is-vcentered method-row">
+          <div class="column is-7">
+            <figure class="paper-figure">
+              <img src="static/images/z8.png" alt="Receptive fields used by RFE-Dijkstra">
+              <figcaption>RFE-Dijkstra restricts expansion to receptive fields aligned with feasible tether deployment directions.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-5">
+            <h3 class="title is-4">Receptive-Field Search</h3>
+            <p>
+              Search begins from the anchor toward candidate terminal tether configurations. The receptive field can shrink from standard 180-degree Dijkstra expansion to the feasible 90-degree range, and in practice toward 45 degrees when constraints permit.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-widescreen">
+        <div class="section-heading">
+          <h2 class="title is-3 section-title">Experiments</h2>
+          <p>
+            The planner is evaluated on 200 by 200 grid maps with random initial tether configurations and goal positions, and is compared under the same conditions with Selecting the Shortest Path (SSP), Planning the Shortest Path (PSP), and Preprocessing the Map (PM).
+          </p>
+        </div>
+
+        <div class="metric-strip">
+          <div class="metric">
+            <strong>59.5 ms</strong>
+            <span>25 obstacles</span>
+          </div>
+          <div class="metric">
+            <strong>15x</strong>
+            <span>faster than SSP</span>
+          </div>
+          <div class="metric">
+            <strong>600x</strong>
+            <span>faster than PSP</span>
+          </div>
+          <div class="metric">
+            <strong>7000x</strong>
+            <span>faster than PM</span>
+          </div>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="paper-figure">
+            <img src="static/images/z5.png" alt="Computation time comparison across algorithms">
+            <figcaption>Computation time under varying obstacle counts, shown on a logarithmic scale.</figcaption>
+          </figure>
+          <figure class="paper-figure">
+            <img src="static/images/z6.png" alt="Planning time impact of receptive field choices">
+            <figcaption>A 45-degree receptive field uses only 1/94 of the computation time of a 180-degree field on average.</figcaption>
+          </figure>
+          <figure class="paper-figure">
+            <img src="static/images/vis.png" alt="Planning results with multiple anchor, start, and goal configurations">
+            <figcaption>Planning results on 25-obstacle maps with different anchor, start, and goal configurations.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop">
+        <div class="bibtex-header">
+          <h2 class="title is-3 section-title">BibTeX</h2>
+          <button class="button is-light copy-bibtex-btn" type="button">
+            <span class="icon"><i class="fas fa-copy"></i></span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code></code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop">
+      <div class="content">
+        <p>
+          This page was built using the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>,
+          adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
