@@ -411,6 +411,22 @@ a {
   margin: 0;
 }
 
+.publication-video {
+  aspect-ratio: 16 / 9;
+  background: #111827;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(24, 32, 42, 0.08);
+  overflow: hidden;
+  width: 100%;
+}
+
+.publication-video iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .bibtex-header {
   align-items: center;
   display: flex;
